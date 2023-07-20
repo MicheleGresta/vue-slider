@@ -48,15 +48,18 @@ const app = Vue.createApp({
 
             visibleImageIndex: 0,
             
-
+            timerInterval : "",
         }
     },
     methods: {
         onCardClick(imageIndex) {
             console.log(imageIndex + 1);
+            clearInterval(this.timerInterval)
             this.visibleImageIndex = imageIndex;  
-
-             this.onTimer()
+            this.timerInterval = setInterval(() => {
+                this.onTimer()
+            }, 1000);
+             
             
         },
         onNextClick() {
@@ -72,16 +75,11 @@ const app = Vue.createApp({
             }
         },
         onTimer(){
-
-            // problemi nel cambiare l'index, una volta che arriva all ultima immagine, vorrei ritornasse alla prima
-            if (this.visibleImageIndex > 4){
-                this.visibleImageIndex = 0
-                const timerId = setInterval(() => this.visibleImageIndex++, 1000);
-                 (clearInterval(timerId), 5000);
-                  
-            } ;
-            
-        
+            if (this.visibleImageIndex === this.images.length - 1){
+                this.visibleImageIndex = 0 
+            } else {
+                this.visibleImageIndex++
+            }                 
              
         }
     },
