@@ -16,13 +16,11 @@
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
 
-                <div class="item"
-                    v-for="(imgGioco, i) in images"
-                    v-bind:class="(visibleImageIndex === i ? 'visible' : '')"
-                    @click="onCardClick(i)">                    
+                <div class="item" v-for="(imgGioco, i) in images"
+                    v-bind:class="(visibleImageIndex === i ? 'visible' : '')" @click="onCardClick(i)">
                     <img v-bind:src="imgGioco">
                     <div class="text">
-                        <h3>    {{titles[i]}}   </h3>
+                        <h3> {{titles[i]}} </h3>
                         <p> {{texts[i]}} </p>
                     </div>
                 </div>
@@ -30,19 +28,18 @@
                 <div class="thumbs">
                     <button class="prev" @click="onPrevClick"></button>
                     <button class="next" @click="onNextClick"></button>
-                    <div class="thumb"v-for="(imgGioco, i) in images"
-                    v-bind:class="(visibleImageIndex === i ? 'visible' : '')"
-                    @click="onCardClick(i)">                    
-                    <img v-bind:src="imgGioco">
-                </div>
+                    <div class="thumb" v-for="(imgGioco, i) in images"
+                        v-bind:class="(visibleImageIndex === i ? 'visible' : '')" @click="onCardClick(i)">
+                        <img v-bind:src="imgGioco">
+                    </div>
 
+                </div>
             </div>
+
         </div>
 
-    </div>
-
-    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
-    <script src="./js/script.js"></script>
+        <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+        <script src="./js/script.js"></script>
 </body>
 
 </html>

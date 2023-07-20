@@ -74,12 +74,12 @@ const app = Vue.createApp({
         onTimer(){
 
             // problemi nel cambiare l'index, una volta che arriva all ultima immagine, vorrei ritornasse alla prima
-            if (this.visibleImageIndex == 5){
-                this.visibleImageIndex == 0
-                const timerId = setInterval(() => this.visibleImageIndex++, 1000);  // un po di casino qui
-            } else {
-                const timerId = setInterval(() => this.visibleImageIndex++, 1000);  // un po di casino qui
-            }
+            if (this.visibleImageIndex > 4){
+                this.visibleImageIndex = 0
+                const timerId = setInterval(() => this.visibleImageIndex++, 1000);
+                 (clearInterval(timerId), 5000);
+                  
+            } ;
             
         
              
